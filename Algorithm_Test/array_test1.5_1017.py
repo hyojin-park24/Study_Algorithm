@@ -124,3 +124,21 @@ class Solution:
             two = temp 
         return one
         
+# 0123 알고리즘 스터디 (재귀함수 02.문자열 치환)
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        def dfs(sub_list: List, remain_list: List):
+            
+            if len(nums) == len(sub_list):
+                result.append(sub_list)
+                return
+            for i , value in enumerate(remain_list):
+                dfs(sub_list+[value], remain_list[:i]+remain_list[i+1:])
+                #enumerate내장함수로 리스트 원소에 각 인덱스 부여
+                #remain_list[:i] = "i까지 리스트 복사";
+                # sub_list에는 숫자가 채워지고
+                # remain_list에는 줄어듦 
+                
+        result = []
+        dfs([], nums)        
+        return result
